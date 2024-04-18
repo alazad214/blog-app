@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:praner_blog/screens/search_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-
 
 class Header_Desktop extends StatelessWidget {
   const Header_Desktop({super.key});
@@ -16,18 +16,23 @@ class Header_Desktop extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              height: 35,
-              width: 200,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.blueGrey)),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Icon(Icons.search), Text("Search")],
+            InkWell(
+              onTap: () {
+                Get.to(() => Search_Screen());
+              },
+              child: Container(
+                height: 35,
+                width: 200,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.blueGrey)),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [Icon(Icons.search), Text("Search")],
+                  ),
                 ),
               ),
             ),

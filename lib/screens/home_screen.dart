@@ -3,6 +3,7 @@ import 'package:praner_blog/blog_card/blogcard_desktop.dart';
 import 'package:praner_blog/blog_card/blogcard_mobile.dart';
 import 'package:praner_blog/header_screens/header_desktop.dart';
 import 'package:praner_blog/header_screens/header_mobile.dart';
+import 'package:praner_blog/screens/fottersection.dart';
 
 import '../header_screens/header_drawer.dart';
 import '../sliders_screen/slider_desktop.dart';
@@ -46,7 +47,11 @@ class Home_Screen extends StatelessWidget {
                     if (constaints.maxWidth >= 640)
                       BlogCard_Desktop()
                     else
-                      BlogCard_Mobile()
+                      BlogCard_Mobile(),
+
+                    const SizedBox(height: 20),
+
+                    const Fotter_Section()
                   ],
                 ),
               )),

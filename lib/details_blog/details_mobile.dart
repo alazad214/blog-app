@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:praner_blog/screens/fottersection.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Details_Mobile extends StatelessWidget {
@@ -25,11 +27,14 @@ class Details_Mobile extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(
-                  blogItem["image"],
-                  height: Height / 3,
-                  fit: BoxFit.cover,
+                CachedNetworkImage(
+                  height: 150,
                   width: double.infinity,
+                  fit: BoxFit.cover,
+                  imageUrl: blogItem["image"],
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
                 Container(
                   decoration: const BoxDecoration(
@@ -110,7 +115,9 @@ class Details_Mobile extends StatelessWidget {
                     ),
                   ),
                   child: const Text("More.."),
-                )
+                ),
+                const SizedBox(height: 30),
+                const Fotter_Section()
               ],
             ),
           ),

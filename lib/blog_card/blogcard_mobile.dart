@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,11 +31,14 @@ class BlogCard_Mobile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    controller.Blog_Item[i]["image"],
+                  CachedNetworkImage(
                     height: 150,
-                    fit: BoxFit.cover,
                     width: double.infinity,
+                    fit: BoxFit.cover,
+                    imageUrl: controller.Blog_Item[i]["image"],
+                    placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 5, top: 5),
