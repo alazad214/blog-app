@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:praner_blog/screens/contact_screen.dart';
 import 'package:praner_blog/screens/policy.dart';
 
 class Header_Drawer extends StatelessWidget {
@@ -24,7 +25,9 @@ class Header_Drawer extends StatelessWidget {
         _CustomListTile("Home", Icons.home, () {
           Navigator.of(context).pop();
         }),
-        _CustomListTile("Contact", Icons.mail, () {}),
+        _CustomListTile("Contact", Icons.mail, () {
+          Get.to(() => const Contact_Screen());
+        }),
         _CustomListTile("Policy", Icons.privacy_tip_rounded, () {
           Get.to(() => const Policy_Screen());
         }),
