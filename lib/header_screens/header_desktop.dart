@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/header_button_item.dart';
 
@@ -39,7 +40,16 @@ class Header_Desktop extends StatelessWidget {
             ),
             CircleAvatar(
               backgroundColor: Colors.black12,
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.mail)),
+              child: IconButton(
+                  onPressed: () async {
+                    final Uri url =
+                        Uri.parse("https://www.facebook.com/alazad214");
+                    if (!await canLaunch(url.toString())) {
+                      throw 'Could not launch $url';
+                    }
+                    await launch(url.toString());
+                  },
+                  icon: const Icon(Icons.facebook)),
             )
           ],
         ),
