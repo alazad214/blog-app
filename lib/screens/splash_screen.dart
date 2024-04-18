@@ -29,7 +29,8 @@ class _Splash_ScreenState extends State<Splash_Screen> {
         Container(
           height: screenSize.height / 1,
           alignment: Alignment.center,
-          child: const Center(child: Text("open")),
+          child: Center(
+              child: Lottie.asset("assets/animations/anim.json", height: 100)),
         )
       ],
     ));

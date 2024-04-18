@@ -33,7 +33,7 @@ class Details_Mobile extends StatelessWidget {
                 ),
                 Container(
                   decoration: const BoxDecoration(
-                      color: Colors.lime,
+                      color: Colors.blueGrey,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10),
@@ -100,7 +100,7 @@ class Details_Mobile extends StatelessWidget {
                     await launch(url.toString());
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    primary: Colors.blueGrey,
                     onPrimary: Colors.white,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),

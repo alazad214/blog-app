@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
-      title: 'Praner Blog',
+      title: 'Blog Rider',
       debugShowCheckedModeBanner: false,
       home: Splash_Screen(),
     );
