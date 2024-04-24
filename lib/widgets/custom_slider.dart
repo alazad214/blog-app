@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,12 +30,20 @@ class Custom_Slider extends StatelessWidget {
               itemBuilder:
                   (BuildContext context, int itemIndex, int pageViewIndex) =>
                       Container(
+                clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        image: NetworkImage(data?[itemIndex]['image']),
-                        fit: BoxFit.cover)),
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: CachedNetworkImage(
+                  height: 140,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  imageUrl: data?[itemIndex]['image'],
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
             ),
           );

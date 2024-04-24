@@ -37,7 +37,7 @@ class Custom_Card extends StatelessWidget {
               for (int i = 0; i < data.length; i++)
                 InkWell(
                   onTap: () {
-                    Get.to(Details_Mobile(blogItem: controller.Blog_Item[i]));
+                    Get.to(Details_Mobile(product: data[i]));
                   },
                   child: Container(
                     height: 240,
@@ -46,7 +46,7 @@ class Custom_Card extends StatelessWidget {
                     margin:
                         const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Column(
@@ -58,20 +58,20 @@ class Custom_Card extends StatelessWidget {
                           fit: BoxFit.cover,
                           imageUrl: data[i]["image"],
                           placeholder: (context, url) =>
-                              Center(child: CircularProgressIndicator()),
+                              const Center(child: CircularProgressIndicator()),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
+                              const Icon(Icons.error),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 5, top: 5),
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.timer,
                                 size: 18,
                                 color: Colors.white60,
                               ),
-                              Expanded(
+                              const Expanded(
                                 child: Text(
                                   "03:50 PM", // Update with your actual time data
                                   maxLines: 1,
@@ -82,8 +82,8 @@ class Custom_Card extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 15),
-                              Icon(
+                              const SizedBox(width: 15),
+                              const Icon(
                                 Icons.person,
                                 size: 18,
                                 color: Colors.white60,
@@ -93,7 +93,7 @@ class Custom_Card extends StatelessWidget {
                                   data[i]["auther"],
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white60,
                                     fontSize: 16,
                                   ),
@@ -108,7 +108,7 @@ class Custom_Card extends StatelessWidget {
                             data[i]["title"],
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         )
                       ],

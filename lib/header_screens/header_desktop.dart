@@ -37,7 +37,7 @@ class Header_Desktop extends StatelessWidget {
               ),
             ),
             const Text(
-              "Tech214",
+              "Blog Rider",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 22,

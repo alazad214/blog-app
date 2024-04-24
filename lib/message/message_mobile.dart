@@ -10,12 +10,17 @@ class message_Mobile extends StatelessWidget {
     return const Column(
       children: [
         Divider(),
-        Text(
-          "mobile Connected",
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
         Custom_TextField(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            "Any articles and comments published on BlogRider are available online and are not owned by BlogRider.",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.black, fontSize: 14),
+          ),
+        ),
         SizedBox(height: 20),
+
       ],
     );
   }
