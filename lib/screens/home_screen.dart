@@ -22,7 +22,7 @@ class Home_Screen extends StatelessWidget {
         endDrawer: constaints.maxWidth >= 600 ? null : const Header_Drawer(),
         body: SafeArea(
           child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 15, ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +49,7 @@ class Home_Screen extends StatelessWidget {
                     else
                       BlogCard_Mobile(),
 
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 40),
 
                     const Fotter_Section()
                   ],

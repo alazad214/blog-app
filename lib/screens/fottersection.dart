@@ -12,6 +12,11 @@ class Fotter_Section extends StatelessWidget {
     return Column(
       children: [
         const Divider(),
+        const Text(
+          "Stay Connected",
+          style: TextStyle(color: Colors.black, fontSize: 20),
+        ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -33,10 +38,6 @@ class Fotter_Section extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        const Text(
-          "Stay Connected",
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
         const Text(
           "Keep up with the letest tech news on our social media",
           style: TextStyle(color: Colors.black, fontSize: 12),
