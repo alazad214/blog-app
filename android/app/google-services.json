@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015455731858",
+    "project_id": "praner-blog",
+    "storage_bucket": "praner-blog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015455731858:android:4aa83a756ff5ce0560964b",
+        "android_client_info": {
+          "package_name": "com.example.praner_blog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7q1I8Ow5ZTdnYAZdIuSQVIuSWEgWhbR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

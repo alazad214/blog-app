@@ -19,7 +19,7 @@ class Home_Screen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Colors.white,
         key: headerkey,
-        endDrawer: constaints.maxWidth >= 600 ? null : Header_Drawer(),
+        endDrawer: constaints.maxWidth >= 600 ? null : const Header_Drawer(),
         body: SafeArea(
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -35,7 +35,7 @@ class Home_Screen extends StatelessWidget {
                       Header_Mobile(ontap: () {
                         headerkey.currentState!.openEndDrawer();
                       }),
-
+                    const SizedBox(height: 20),
                     //Slider section------>
                     if (constaints.maxWidth >= 650)
                       const Slider_Desktop()

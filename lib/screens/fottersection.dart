@@ -38,7 +38,7 @@ class Fotter_Section extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
         const Text(
-          "Keep upo eith the letest tech news on our social media",
+          "Keep up with the letest tech news on our social media",
           style: TextStyle(color: Colors.black, fontSize: 12),
         ),
         const Divider(),

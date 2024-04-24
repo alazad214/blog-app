@@ -43,8 +43,11 @@ dependencies:
   carousel_slider: ^4.2.1
   another_carousel_pro: ^1.0.2
   cached_network_image: ^3.3.1
-
-
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  firebase_storage: ^11.6.9
+  cloud_firestore: ^4.15.8
+  firebase_messaging: ^14.7.19
 
 
 dev_dependencies:
