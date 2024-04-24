@@ -7,19 +7,19 @@ class message_Mobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
-        Divider(),
+        const Divider(),
         Custom_TextField(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Text(
             "Any articles and comments published on BlogRider are available online and are not owned by BlogRider.",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black, fontSize: 14),
+            style: TextStyle(color: Colors.blueGrey, fontSize: 12),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
       ],
     );
