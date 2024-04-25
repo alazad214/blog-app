@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:praner_blog/screens/post_screen.dart';
 
 import '../screens/search_screen.dart';
 
@@ -23,22 +24,22 @@ class Header_Mobile extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Get.to(() => const Search_Screen());
+                Get.to(() => const Post_Screen());
               },
               child: Container(
                 height: 30,
                 padding: const EdgeInsets.only(
-                    left: 0, right: 15, top: 2, bottom: 2),
+                    left: 5, right: 15, top: 2, bottom: 2),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: Colors.blueGrey)),
                 child: const Padding(
-                  padding: EdgeInsets.only(left: 5, right: 15),
+                  padding: EdgeInsets.only(left: 10, right: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [Icon(Icons.search), Text("Search")],
+                    children: [Icon(Icons.post_add), Text("Create blog..")],
                   ),
                 ),
               ),

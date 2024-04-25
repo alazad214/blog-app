@@ -7,7 +7,7 @@ class message_Mobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         const Divider(),
         Custom_TextField(),
@@ -20,7 +20,6 @@ class message_Mobile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-
       ],
     );
   }
