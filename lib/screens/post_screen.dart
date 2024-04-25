@@ -10,6 +10,7 @@ class Post_Screen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Create blog"),
         titleSpacing: 0,
+        backgroundColor: Colors.white70,
         actions: [
           IconButton(
               onPressed: () {},
@@ -33,6 +34,7 @@ class Post_Screen extends StatelessWidget {
                   color: Colors.green,
                   size: 45,
                 )),
+            const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: ElevatedButton(
