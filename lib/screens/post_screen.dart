@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,6 +14,7 @@ class Post_Screen extends StatefulWidget {
 }
 
 class _Post_ScreenState extends State<Post_Screen> {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   final ImagePicker picker = ImagePicker();
   XFile? image;
   List<XFile>? images;
@@ -78,9 +80,7 @@ class _Post_ScreenState extends State<Post_Screen> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  onPrimary: Colors.white,
-                  // Elevation
+
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),

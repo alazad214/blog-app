@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:praner_blog/widgets/custom_card.dart';
 
-import '../details_blog/details_mobile.dart';
 import '../utils/blog_item.dart';
 
 class BlogCard_Desktop extends StatelessWidget {

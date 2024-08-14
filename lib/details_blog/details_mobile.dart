@@ -109,8 +109,6 @@ class Details_Mobile extends StatelessWidget {
                       await launch(url.toString());
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blueGrey,
-                      onPrimary: Colors.white,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10),
                       textStyle: const TextStyle(fontSize: 16),
