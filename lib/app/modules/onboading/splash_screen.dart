@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praner_blog/utils/app_config.dart';
-import '../home/home_screen.dart';
+import '../tabbar/tabbar_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(HomeScreen());
+      Get.offAll(TabbarScreen());
     });
     super.initState();
   }

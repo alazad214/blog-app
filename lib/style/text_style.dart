@@ -6,7 +6,7 @@ TextStyle AppTextStyle1(
     {Color? textColor, FontWeight? fontWeight, double? fontSize}) {
   return TextStyle(
     fontSize: fontSize ?? 22,
-    color: textColor ?? AppColor.primary,
+    color: textColor ?? AppColor.black,
     fontWeight: fontWeight ?? FontWeight.bold,
     fontFamily: "robotomono",
   );
@@ -15,9 +15,9 @@ TextStyle AppTextStyle1(
 TextStyle AppTextStyle2(
     {Color? textColor, FontWeight? fontWeight, double? fontSize}) {
   return TextStyle(
-    fontSize: fontSize ?? 15,
+    fontSize: fontSize ?? 13,
     color: textColor ?? Colors.black.withOpacity(0.6),
-    fontWeight: fontWeight ?? FontWeight.w500,
+    fontWeight: fontWeight ?? FontWeight.bold,
     fontFamily: "robotomono",
   );
 }

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../post screen/post_screen.dart';
 
-
 class HeaderMobile extends StatelessWidget {
   const HeaderMobile({super.key, required this.ontap});
   final VoidCallback ontap;
@@ -11,7 +10,7 @@ class HeaderMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 65,
       padding: const EdgeInsets.only(left: 20, bottom: 0, right: 10, top: 0),
       decoration: BoxDecoration(
           color: Colors.blueGrey, borderRadius: BorderRadius.circular(8)),
