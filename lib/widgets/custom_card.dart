@@ -1,15 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
-import '../details_blog/details_mobile.dart';
+import '../app/modules/details blog/details_mobile.dart';
 import '../utils/blog_item.dart';
 
-class Custom_Card extends StatelessWidget {
-  Custom_Card({super.key});
+class CustomCard extends StatelessWidget {
+  CustomCard({super.key});
   final controller = Get.put(BlogController());
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class Custom_Card extends StatelessWidget {
               for (int i = 0; i < data.length; i++)
                 InkWell(
                   onTap: () {
-                    Get.to(Details_Mobile(product: data[i]));
+                    Get.to(DetailsMobile(product: data[i]));
                   },
                   child: Container(
                     height: 240,

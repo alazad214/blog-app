@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praner_blog/controllers/message_controller.dart';
 
-class Custom_TextField extends StatelessWidget {
-  Custom_TextField({super.key});
+import '../app/business logic/controllers/message_controller.dart';
+
+class CustomTextField extends StatelessWidget {
+  CustomTextField({super.key});
   final TextEditingController messagecontroller = TextEditingController();
 
-  final controller = Get.put(Message_Controller());
+  final controller = Get.put(MessageController());
 
   @override
   Widget build(BuildContext context) {
