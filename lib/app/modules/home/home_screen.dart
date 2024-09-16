@@ -24,7 +24,8 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: appInputDecoration(hinttext: 'Search Blogs'),
+                  decoration: appInputDecoration(
+                      hinttext: 'Search Blogs', suffixicon: Icons.search),
                 ),
                 SizedBox(height: 30),
                 BlogCard(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:praner_blog/app/modules/add%20blog/add_blog_screen.dart';
 import 'package:praner_blog/app/modules/header%20screen/header_drawer.dart';
 import 'package:praner_blog/app/modules/home/home_screen.dart';
 import 'package:praner_blog/style/text_style.dart';
@@ -52,7 +52,7 @@ class TabbarScreen extends StatelessWidget {
           children: [
             HomeScreen(),
             Center(child: Text('Content of Tab 2')),
-            Center(child: Text('Content of Tab 3')),
+            AddBlogScreen()
           ],
         ),
         endDrawer: AppDrawer(),

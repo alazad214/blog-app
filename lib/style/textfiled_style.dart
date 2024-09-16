@@ -3,7 +3,7 @@ import 'package:praner_blog/utils/colors.dart';
 
 InputDecoration appInputDecoration({
   hinttext,
-  prefixIcon,
+  suffixicon,
   VoidCallback? ontap,
 }) {
   return InputDecoration(
@@ -11,8 +11,13 @@ InputDecoration appInputDecoration({
 
     filled: true,
     fillColor: Colors.black12,
-    suffixIcon: Icon(Icons.search, color: AppColor.secondary, size: 32),
-    contentPadding: EdgeInsets.symmetric(horizontal: 20),
+    suffixIcon: Icon(suffixicon, color: AppColor.secondary, size: 32),
+
+    suffixStyle: TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+      color: Colors.black.withOpacity(0.6),
+    ),
     // Enable border
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12.0),
