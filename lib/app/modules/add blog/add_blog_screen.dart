@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:praner_blog/widgets/app_button.dart';
 import 'package:praner_blog/widgets/app_dropdown_menu.dart';
 import '../../../style/text_style.dart';
 import '../../../style/textfiled_style.dart';
@@ -36,7 +37,7 @@ class AddBlogScreen extends StatelessWidget {
                       return Stack(
                         children: [
                           Container(
-                            height: 200,
+                            height: 150,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Colors.black12,
@@ -45,7 +46,7 @@ class AddBlogScreen extends StatelessWidget {
                                   ? DecorationImage(
                                       image: FileImage(
                                           controller.selectedImage.value!),
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                     )
                                   : null,
                             ),
@@ -84,7 +85,6 @@ class AddBlogScreen extends StatelessWidget {
                     SizedBox(height: 5),
                     TextFormField(
                         controller: titleController,
-                        maxLines: 2,
                         decoration: appInputDecoration(hinttext: 'Blog Title'),
                         validator: InputValidator.validateTitle),
                     SizedBox(height: 20),
@@ -97,7 +97,7 @@ class AddBlogScreen extends StatelessWidget {
                     SizedBox(height: 5),
                     TextFormField(
                         controller: descriptionController,
-                        maxLines: 8,
+                        maxLines: 5,
                         decoration:
                             appInputDecoration(hinttext: 'Blog Description'),
                         validator: InputValidator.validateDescription),
@@ -137,58 +137,70 @@ class AddBlogScreen extends StatelessWidget {
                             controller.setTopic(value!);
                           },
                         )),
-                    SizedBox(height: 70)
+                    SizedBox(height: 30),
+                    AppButton(
+                      text: 'Post Now',
+                      onTap: () {
+                        if (formKey.currentState!.validate()) {
+                          final title = titleController.text;
+                          final description = descriptionController.text;
+                          final author = authorController.text;
+
+                          if (controller.selectedImage.value == null) {
+                            errorToast('Please select an image');
+                            return;
+                          }
+                          if (controller.selectedTopic.value.isEmpty) {
+                            errorToast('Please select a topic');
+                            return;
+                          }
+
+                          try {
+                            controller
+                                .saveBlogPost(title, description, author)
+                                .then((_) {
+                              successToast('Blog post submitted');
+                              formKey.currentState?.reset();
+                              titleController.clear();
+                              descriptionController.clear();
+                              authorController.clear();
+                              controller.selectedTopic.value = '';
+                              controller.selectedImage.value = null;
+                            }).catchError((e) {
+                              errorToast('Error saving blog post: $e');
+                            });
+                          } catch (e) {
+                            errorToast('Error: $e');
+                          }
+                        }
+                      },
+                    )
                   ],
                 ),
               ),
             ),
             if (controller.isLoading.value)
-              Center(
-                child: CircularProgressIndicator(),
-              ),
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                color: Colors.black54,
+                child: Center(
+                  child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Uploading...',
+                              style: AppTextStyle2(textColor: Colors.white)),
+                          SizedBox(height: 15),
+                          CircularProgressIndicator(color: AppColor.secondary)
+                        ],
+                      )),
+                ),
+              )
           ],
         );
       }),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColor.secondary,
-        child: Icon(
-          Icons.upload,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          if (formKey.currentState!.validate()) {
-            final title = titleController.text;
-            final description = descriptionController.text;
-            final author = authorController.text;
-
-            if (controller.selectedImage.value == null) {
-              errorToast('Please select an image');
-              return;
-            }
-            if (controller.selectedTopic.value.isEmpty) {
-              errorToast('Please select a topic');
-              return;
-            }
-
-            try {
-              controller.saveBlogPost(title, description, author).then((_) {
-                successToast('Blog post submitted');
-                formKey.currentState
-                    ?.reset(); // Reset the form after submission
-                titleController.clear();
-                descriptionController.clear();
-                authorController.clear();
-                controller.selectedTopic.value = '';
-                controller.selectedImage.value = null;
-              }).catchError((e) {
-                errorToast('Error saving blog post: $e');
-              });
-            } catch (e) {
-              errorToast('Error: $e');
-            }
-          }
-        },
-      ),
     );
   }
 }

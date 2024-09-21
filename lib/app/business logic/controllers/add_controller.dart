@@ -9,7 +9,7 @@ import 'package:image_picker/image_picker.dart';
 class BlogPostController extends GetxController {
   var selectedTopic = ''.obs;
   var selectedImage = Rxn<File>();
-  var isLoading = false.obs; // Observable variable for loading state
+  var isLoading = false.obs;
 
   List<String> topics = ["Technology", "Lifestyle", "Health", "Education"];
 
@@ -25,7 +25,8 @@ class BlogPostController extends GetxController {
     }
   }
 
-  Future<void> saveBlogPost(String title, String description, String author) async {
+  Future<void> saveBlogPost(
+      String title, String description, String author) async {
     if (selectedImage.value == null || selectedTopic.value.isEmpty) {
       throw Exception('Image or topic is missing');
     }
