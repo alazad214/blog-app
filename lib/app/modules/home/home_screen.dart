@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:praner_blog/app/modules/blog/blog_card.dart';
 import 'package:praner_blog/style/textfiled_style.dart';
+import 'package:praner_blog/widgets/custom_slider.dart';
 import '../../../utils/colors.dart';
-import '../blog card/blogcard_desktop.dart';
-import '../blog card/blogcard_mobile.dart';
 import '../header screen/header_drawer.dart';
-import '../fotter/fottersection.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -23,19 +21,14 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
             child: Column(
               children: [
+                CustomSlider(),
+                SizedBox(height: 30),
                 TextFormField(
                   decoration: appInputDecoration(
                       hinttext: 'Search Blogs', suffixicon: Icons.search),
                 ),
                 SizedBox(height: 30),
                 BlogCard(),
-                SizedBox(height: 30),
-                if (constaints.maxWidth >= 640)
-                  BlogCardDesktop()
-                else
-                  BlogCardMobile(),
-                const SizedBox(height: 40),
-                const FotterSection()
               ],
             ),
           ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:praner_blog/style/toast_style.dart';
-
 import '../../../style/text_style.dart';
 import '../../../utils/colors.dart';
 

@@ -95,7 +95,7 @@ flutter:
   assets:
    - assets/sliders/
    - assets/contact/
-   - assets/animations/
+   - assets/animations/shimmer.json
    - assets/image/
    - assets/logo/
    - assets/icon/
