@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:praner_blog/app/modules/blog/blog_card.dart';
 import 'package:praner_blog/style/textfiled_style.dart';
-import 'package:praner_blog/widgets/custom_slider.dart';
+import 'package:praner_blog/app/modules/slider/custom_slider.dart';
 import '../../../utils/colors.dart';
 import '../header screen/header_drawer.dart';
 
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: AppColor.bgColor,
         key: headerkey,
-        endDrawer: constaints.maxWidth >= 600 ? null : const AppDrawer(),
+        endDrawer: constaints.maxWidth >= 600 ? null : AppDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),

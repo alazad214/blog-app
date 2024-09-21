@@ -4,7 +4,8 @@ import '../../../style/text_style.dart';
 import '../../../utils/colors.dart';
 
 class BlogDetials extends StatelessWidget {
-  const BlogDetials({super.key});
+  final blog;
+  const BlogDetials({super.key, this.blog});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,11 @@ class BlogDetials extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                    clipBehavior: Clip.antiAlias,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(6)),
-                    child: Image.asset('assets/image/news.png')),
+                  clipBehavior: Clip.antiAlias,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(6)),
+                  child: Image.network(blog['image'], fit: BoxFit.cover),
+                ),
                 Positioned(
                   top: 5,
                   right: 5,
@@ -41,17 +43,14 @@ class BlogDetials extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            Text(
-                'News publishers sound alarm on Google’s new AI-infused search, warn of ‘catastrophic’ impacts',
+            Text(blog['title'] ?? 'Untitled Blog',
                 style: AppTextStyle1(fontSize: 18)),
-            Text('- Al Azad',
+            Text(blog['author'] ?? 'Untitled Blog',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
                 style: AppTextStyle2(textColor: Colors.blue)),
             SizedBox(height: 30),
-            Text(
-                'Google on Tuesday announced that it will infuse its ubiquitous search engine with its powerful artificial intelligence model, Gemini, drawing on the rapidly advancing technology to directly answer user queries at the top of results pages. “Google will do the Googling for you,” the company explained. In other words, users will soon no longer have to click on the links displayed in search results to find the information they are seeking.',
-                style: AppTextStyle2()),
+            Text(blog['description'] ?? 'Untitled Blog', style: AppTextStyle2()),
           ],
         ),
       ),

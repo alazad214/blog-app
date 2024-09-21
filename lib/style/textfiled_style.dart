@@ -14,7 +14,7 @@ InputDecoration appInputDecoration({
     suffixIcon: Icon(suffixicon, color: AppColor.secondary, size: 32),
 
     suffixStyle: TextStyle(
-      fontSize: 10,
+      fontSize: 8,
       fontWeight: FontWeight.bold,
       color: Colors.black.withOpacity(0.6),
     ),

@@ -27,7 +27,9 @@ class BlogCard extends StatelessWidget {
           itemBuilder: (_, index) {
             final blog = blogs[index];
             return InkWell(
-              onTap: () => Get.to(() => BlogDetials()),
+              onTap: () => Get.to(() => BlogDetials(
+                    blog: blogs[index],
+                  )),
               child: Container(
                 clipBehavior: Clip.antiAlias,
                 margin: EdgeInsets.symmetric(vertical: 12),
@@ -79,9 +81,9 @@ class BlogCard extends StatelessWidget {
                             maxLines: 3,
                             style: AppTextStyle1(fontSize: 16),
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 10),
                           Text(
-                            blog['author'] ?? 'Unknown Author',
+                            blog['description'] ?? 'Unknown Author',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: AppTextStyle2(),
