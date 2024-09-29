@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:praner_blog/app/modules/add%20blog/add_blog_screen.dart';
-import 'package:praner_blog/app/modules/category/blog_category.dart';
+import 'package:praner_blog/app/modules/category/views/blog_category.dart';
 import 'package:praner_blog/app/modules/home/widgets/app_drawer.dart';
 import 'package:praner_blog/app/modules/home/views/home_screen.dart';
 import 'package:praner_blog/style/text_style.dart';

@@ -4,16 +4,18 @@ import '../../../../style/text_style.dart';
 import '../../../../utils/colors.dart';
 
 class BlogDetials extends StatelessWidget {
-  final blog;
-  const BlogDetials({super.key, this.blog});
+  final dynamic blog;
+  const BlogDetials({super.key, required this.blog});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bgColor,
       appBar: AppBar(
-        title: Text('Find More'),
-        backgroundColor: AppColor.bgColor,
+        title: Text(
+          "Blog details",
+          style: AppTextStyle2(),
+        ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -26,7 +28,9 @@ class BlogDetials extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(6)),
-                  child: Image.network(blog['image'], fit: BoxFit.cover),
+                  child: blog['image'] != null
+                      ? Image.network(blog['image'], fit: BoxFit.cover)
+                      : Image.asset('assets/image/news.png', fit: BoxFit.cover),
                 ),
                 Positioned(
                   top: 5,
@@ -34,10 +38,11 @@ class BlogDetials extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: AppColor.secondary,
                     child: IconButton(
-                        onPressed: () {
-                          successToast('Comming Soon');
-                        },
-                        icon: Icon(Icons.share, color: Colors.white)),
+                      onPressed: () {
+                        successToast('Coming Soon');
+                      },
+                      icon: Icon(Icons.share, color: Colors.white),
+                    ),
                   ),
                 ),
               ],
@@ -45,12 +50,14 @@ class BlogDetials extends StatelessWidget {
             SizedBox(height: 20),
             Text(blog['title'] ?? 'Untitled Blog',
                 style: AppTextStyle1(fontSize: 18)),
-            Text(blog['author'] ?? 'Untitled Blog',
+            SizedBox(height: 10),
+            Text(blog['author'] ?? 'Unknown Author',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
                 style: AppTextStyle2(textColor: Colors.blue)),
             SizedBox(height: 30),
-            Text(blog['description'] ?? 'Untitled Blog', style: AppTextStyle2()),
+            Text(blog['description'] ?? 'No description available',
+                style: AppTextStyle2()),
           ],
         ),
       ),
