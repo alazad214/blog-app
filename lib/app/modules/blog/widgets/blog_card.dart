@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:praner_blog/app/modules/blog/blog_detials.dart';
+import 'package:praner_blog/app/modules/blog/views/blog_detials.dart';
 import 'package:praner_blog/style/text_style.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:praner_blog/widgets/shimmer.dart';
-import '../../business logic/controllers/blog_controller.dart';
+
+import '../../../logic/controllers/blog_controller.dart';
 
 class BlogCard extends StatelessWidget {
   BlogCard({super.key});
-  final blogController = Get.put(BlogController());
+  final controller = Get.put(BlogController());
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -61,8 +62,7 @@ class BlogCard extends StatelessWidget {
                             child: Text(
                               blog['created_at'] != null &&
                                       blog['created_at'] is Timestamp
-                                  ? blogController
-                                      .formatDate(blog['created_at'])
+                                  ? controller.formatDate(blog['created_at'])
                                   : 'Unknown Date',
                               style: AppTextStyle2(textColor: Colors.black),
                             ),

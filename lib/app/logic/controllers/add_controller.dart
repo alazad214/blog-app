@@ -5,13 +5,32 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:praner_blog/style/toast_style.dart';
 
 class BlogPostController extends GetxController {
   var selectedTopic = ''.obs;
   var selectedImage = Rxn<File>();
   var isLoading = false.obs;
+  RxList<String> topics = <String>[].obs;
 
-  List<String> topics = ["Technology", "Lifestyle", "Health", "Education"];
+  @override
+  void onInit() {
+    super.onInit();
+    fetchCategories();
+  }
+
+  // Fetch categories from Firestore
+  void fetchCategories() async {
+    try {
+      final snapshot =
+          await FirebaseFirestore.instance.collection('category').get();
+      List<String> fetchedTopics =
+          snapshot.docs.map((doc) => doc['name'].toString()).toList();
+      topics.addAll(fetchedTopics);
+    } catch (e) {
+      successToast('Something wrong');
+    }
+  }
 
   void setTopic(String topic) {
     selectedTopic.value = topic;

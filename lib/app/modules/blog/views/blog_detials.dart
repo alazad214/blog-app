@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:praner_blog/style/toast_style.dart';
-import '../../../style/text_style.dart';
-import '../../../utils/colors.dart';
+import '../../../../style/text_style.dart';
+import '../../../../utils/colors.dart';
 
 class BlogDetials extends StatelessWidget {
   final blog;

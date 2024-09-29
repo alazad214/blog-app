@@ -1,13 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:praner_blog/app/modules/blog/blog_card.dart';
-import 'package:praner_blog/style/textfiled_style.dart';
-import 'package:praner_blog/app/modules/slider/custom_slider.dart';
-import '../../../utils/colors.dart';
-import '../header screen/header_drawer.dart';
+import 'package:praner_blog/app/modules/home/widgets/custom_slider.dart';
+import '../../../../utils/colors.dart';
+import '../../blog/widgets/add_home_card.dart';
+import '../../blog/widgets/blog_card.dart';
+import '../widgets/app_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final headerkey = GlobalKey<ScaffoldState>();
+  final currentUser = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +17,15 @@ class HomeScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: AppColor.bgColor,
         key: headerkey,
-        endDrawer: constaints.maxWidth >= 600 ? null : AppDrawer(),
+        drawer: AppDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Column(
               children: [
-                CustomSlider(),
+                if (currentUser == null) SizedBox() else PostInputWidget(),
                 SizedBox(height: 30),
-                TextFormField(
-                  decoration: appInputDecoration(
-                      hinttext: 'Search Blogs', suffixicon: Icons.search),
-                ),
+                CustomSlider(),
                 SizedBox(height: 30),
                 BlogCard(),
               ],

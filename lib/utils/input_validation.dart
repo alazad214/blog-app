@@ -19,4 +19,11 @@ class InputValidator {
     }
     return null;
   }
+
+  static String? requeridField(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'FullFill Field';
+    }
+    return null;
+  }
 }

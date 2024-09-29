@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../app/business logic/controllers/message_controller.dart';
+import '../app/logic/controllers/message_controller.dart';
 
 class CustomTextField extends StatelessWidget {
   CustomTextField({super.key});
-  final TextEditingController messagecontroller = TextEditingController();
+  final messagecontroller = TextEditingController();
 
   final controller = Get.put(MessageController());
 
@@ -44,9 +43,7 @@ class CustomTextField extends StatelessWidget {
 
           //focus-->
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-                color:
-                    Colors.blue), // Set border color when the field is focused
+            borderSide: BorderSide(color: Colors.blue),
           ),
         ),
       ),

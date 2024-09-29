@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:praner_blog/app/modules/main/main_screen.dart';
 import 'package:praner_blog/widgets/app_button.dart';
 import 'package:praner_blog/widgets/app_dropdown_menu.dart';
 import '../../../style/text_style.dart';
@@ -7,7 +8,7 @@ import '../../../style/textfiled_style.dart';
 import '../../../style/toast_style.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/input_validation.dart';
-import '../../business logic/controllers/add_controller.dart';
+import '../../logic/controllers/add_controller.dart';
 
 class AddBlogScreen extends StatelessWidget {
   AddBlogScreen({super.key});
@@ -22,6 +23,17 @@ class AddBlogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bgColor,
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Get.offAll(() => MainScreen());
+            },
+            icon: Icon(Icons.arrow_back_rounded)),
+        title: Text(
+          "Add blog",
+          style: AppTextStyle2(),
+        ),
+      ),
       body: Obx(() {
         return Stack(
           children: [
@@ -121,22 +133,27 @@ class AddBlogScreen extends StatelessWidget {
                             textColor: Colors.black.withOpacity(0.6),
                             fontSize: 16.0)),
                     SizedBox(height: 5),
-                    Obx(() => AppDropdownMenu(
-                          value: controller.selectedTopic.value.isEmpty
-                              ? null
-                              : controller.selectedTopic.value,
-                          hintText: "Select Topics",
-                          icon: Icon(Icons.arrow_drop_down),
-                          items: List.generate(controller.topics.length, (i) {
-                            return DropdownMenuItem(
-                              value: controller.topics[i],
-                              child: Text(controller.topics[i]),
-                            );
-                          }),
-                          onChanged: (value) {
-                            controller.setTopic(value!);
-                          },
-                        )),
+                    Obx(() {
+                      if (controller.topics.isEmpty) {
+                        return Text("Loading categories...");
+                      }
+                      return AppDropdownMenu(
+                        value: controller.selectedTopic.value.isEmpty
+                            ? null
+                            : controller.selectedTopic.value,
+                        hintText: "Select Topics",
+                        icon: Icon(Icons.arrow_drop_down),
+                        items: List.generate(controller.topics.length, (i) {
+                          return DropdownMenuItem(
+                            value: controller.topics[i],
+                            child: Text(controller.topics[i]),
+                          );
+                        }),
+                        onChanged: (value) {
+                          controller.setTopic(value!);
+                        },
+                      );
+                    }),
                     SizedBox(height: 30),
                     AppButton(
                       text: 'Post Now',

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:praner_blog/utils/app_config.dart';
-import '../tabbar/tabbar_screen.dart';
+import 'package:praner_blog/utils/colors.dart';
+
+import '../main/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(TabbarScreen());
+      Get.offAll(MainScreen());
     });
     super.initState();
   }
@@ -23,15 +25,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
+        backgroundColor: AppColor.bgColor,
         body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-              child:
-                  Image.asset(AppConfig.appLogo, height: screenSize.height / 5))
-        ],
-      ),
-    ));
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                  child: Image.asset(AppConfig.appLogo,
+                      height: screenSize.height / 5))
+            ],
+          ),
+        ));
   }
 }

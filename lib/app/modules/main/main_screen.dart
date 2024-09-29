@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:praner_blog/app/modules/add%20blog/add_blog_screen.dart';
-import 'package:praner_blog/app/modules/header%20screen/header_drawer.dart';
-import 'package:praner_blog/app/modules/home/home_screen.dart';
+import 'package:praner_blog/app/modules/category/blog_category.dart';
+import 'package:praner_blog/app/modules/home/widgets/app_drawer.dart';
+import 'package:praner_blog/app/modules/home/views/home_screen.dart';
 import 'package:praner_blog/style/text_style.dart';
 import 'package:praner_blog/utils/colors.dart';
 
-class TabbarScreen extends StatelessWidget {
-  TabbarScreen({super.key});
+import '../search/search_screen.dart';
+
+class MainScreen extends StatelessWidget {
+  MainScreen({super.key});
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -16,20 +20,25 @@ class TabbarScreen extends StatelessWidget {
       child: Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          title: Text(
-            ' Blog Rider',
-            style: AppTextStyle1(),
+          title: Row(
+            children: [
+              Text(
+                ' Blog',
+                style: AppTextStyle1(fontWeight: FontWeight.w500),
+              ),
+              Text(
+                ' Rider',
+                style: AppTextStyle1(
+                    fontWeight: FontWeight.w500, textColor: AppColor.secondary),
+              ),
+            ],
           ),
           backgroundColor: AppColor.bgColor,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  scaffoldKey.currentState!.openEndDrawer();
-                },
-                icon: CircleAvatar(
-                    backgroundColor: AppColor.secondary,
-                    child: Icon(Icons.menu, color: Colors.white)))
-          ],
+          leading: IconButton(
+              onPressed: () {
+                scaffoldKey.currentState!.openDrawer();
+              },
+              icon: Icon(Icons.menu)),
           bottom: TabBar(
             dividerColor: AppColor.white,
             indicatorColor: Colors.transparent,
@@ -44,18 +53,14 @@ class TabbarScreen extends StatelessWidget {
               Tab(
                 icon: FaIcon(FontAwesomeIcons.newspaper),
               ),
-              Tab(icon: Icon(Icons.add_circle_outline_sharp, size: 30)),
+              Tab(icon: FaIcon(FontAwesomeIcons.search)),
             ],
           ),
         ),
         body: TabBarView(
-          children: [
-            HomeScreen(),
-            Center(child: Text('Content of Tab 2')),
-            AddBlogScreen()
-          ],
+          children: [HomeScreen(), CategoryScreen(), SearchScreen()],
         ),
-        endDrawer: AppDrawer(),
+        drawer: AppDrawer(),
       ),
     );
   }

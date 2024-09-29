@@ -44,7 +44,7 @@ dependencies:
   another_carousel_pro: ^1.0.2
   cached_network_image: ^3.3.1
   firebase_core: ^2.27.0
-  firebase_auth: ^4.17.8
+  firebase_auth:
   firebase_storage: ^11.6.9
   cloud_firestore: ^4.15.8
   firebase_messaging: ^14.7.19
@@ -52,6 +52,7 @@ dependencies:
   fluttertoast: ^8.2.8
   iconsax: ^0.0.8
   font_awesome_flutter: ^10.4.0
+  form_field_validator: ^1.1.0
 
 
 
