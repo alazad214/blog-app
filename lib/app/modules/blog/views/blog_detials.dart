@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:praner_blog/style/toast_style.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../../../style/text_style.dart';
 import '../../../../utils/colors.dart';
 
@@ -33,13 +33,13 @@ class BlogDetials extends StatelessWidget {
                       : Image.asset('assets/image/news.png', fit: BoxFit.cover),
                 ),
                 Positioned(
-                  top: 5,
-                  right: 5,
+                  top: 10,
+                  right: 10,
                   child: CircleAvatar(
                     backgroundColor: AppColor.secondary,
                     child: IconButton(
                       onPressed: () {
-                        successToast('Coming Soon');
+                        _showShareDialog(context);
                       },
                       icon: Icon(Icons.share, color: Colors.white),
                     ),
@@ -61,6 +61,30 @@ class BlogDetials extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _showShareDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Share'),
+          content: Text('What would you like to share?'),
+          actions: [
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  Share.share(
+                      'Check out this app: https://alazad214.netlify.app/');
+                  Navigator.of(context).pop();
+                },
+                child: Text('Share App'),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }

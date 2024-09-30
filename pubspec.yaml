@@ -39,7 +39,7 @@ dependencies:
   get:
   lottie: ^3.1.0
   url_launcher: ^6.0.0
-  salomon_bottom_bar: ^3.3.2
+  share_plus:
   carousel_slider: ^5.0.0
   another_carousel_pro: ^1.0.2
   cached_network_image: ^3.3.1
@@ -47,7 +47,6 @@ dependencies:
   firebase_auth:
   firebase_storage: ^11.6.9
   cloud_firestore: ^4.15.8
-  firebase_messaging: ^14.7.19
   image_picker:
   fluttertoast: ^8.2.8
   iconsax: ^0.0.8
@@ -94,10 +93,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/sliders/
-   - assets/contact/
    - assets/animations/shimmer.json
-   - assets/image/
    - assets/logo/
    - assets/icon/
   #   - images/a_dot_ham.jpeg
