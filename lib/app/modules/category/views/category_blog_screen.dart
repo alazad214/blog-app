@@ -14,13 +14,13 @@ class CategoryBlogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.bgColor,  appBar: AppBar(
-      title: Text(
-        "Add blog",
-        style: AppTextStyle2(),
+      backgroundColor: AppColor.bgColor,
+      appBar: AppBar(
+        title: Text(
+          "Add blog",
+          style: AppTextStyle2(),
+        ),
       ),
-    ),
-
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection('blogs')

@@ -22,20 +22,38 @@ class CategoryScreen extends StatelessWidget {
           }
 
           final data = snapshot.data!.docs;
-          return ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (_, index) {
-                return InkWell(
-                  onTap: () {
-                    Get.to(() => CategoryBlogScreen(
-                          category: data[index]['name'],
-                        ));
-                  },
-                  child: CategoryCard(
-                    text: data[index]['name'],
+          return SingleChildScrollView(
+            padding: EdgeInsets.all(15),
+            child: Column(
+              children: [
+                Text(
+                  'Discover blogs from the categories you love.',
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold
                   ),
-                );
-              });
+                ),
+                SizedBox(height: 20),
+                ListView.builder(
+                    primary: false,
+                    shrinkWrap: true,
+                    itemCount: data.length,
+                    itemBuilder: (_, index) {
+                      return InkWell(
+                        onTap: () {
+                          Get.to(() => CategoryBlogScreen(
+                                category: data[index]['name'],
+                              ));
+                        },
+                        child: CategoryCard(
+                          text: data[index]['name'],
+                        ),
+                      );
+                    })
+              ],
+            ),
+          );
         },
       ),
     );

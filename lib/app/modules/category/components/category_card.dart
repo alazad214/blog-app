@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({
+  CategoryCard({
     super.key,
     this.text,
     this.iconSrc,
@@ -18,28 +20,24 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color randomColor =
+        Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.5);
     return Container(
-      margin: const EdgeInsets.only(bottom: 1),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-          color: Colors.white70,
-          border: Border.all(width: 0.1, color: Colors.black87)),
+          color: randomColor.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(width: 0.1, color: Colors.black26)),
       child: ListTile(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 15, vertical: 15 / 2),
-          leading: Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(4)),
-            child: Icon(
-              Icons.double_arrow,
-              color: Colors.white,
-            ),
-          ),
-          title: Text(
-            text ?? '',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          trailing: Icon(Icons.arrow_right)),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 15, vertical: 15 / 3),
+        leading: Image.asset('assets/icon/category.png', height: 20),
+        title: Text(text ?? '',
+            style: TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.w500,
+                fontSize: 18)),
+      ),
     );
   }
 }

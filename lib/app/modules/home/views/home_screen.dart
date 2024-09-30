@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:praner_blog/app/modules/home/widgets/custom_slider.dart';
-import '../../../../utils/colors.dart';
 import '../../blog/widgets/add_home_card.dart';
 import '../../blog/widgets/blog_card.dart';
 import '../widgets/app_drawer.dart';
@@ -15,7 +14,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constaints) {
       return Scaffold(
-        backgroundColor: AppColor.bgColor,
         key: headerkey,
         drawer: AppDrawer(),
         body: SafeArea(
@@ -24,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 if (currentUser == null) SizedBox() else PostInputWidget(),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 CustomSlider(),
                 SizedBox(height: 30),
                 BlogCard(),

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:praner_blog/app/modules/add%20blog/add_blog_screen.dart';
 import 'package:praner_blog/app/modules/main/main_screen.dart';
 
 import '../../../../style/toast_style.dart';
@@ -20,7 +19,7 @@ class AuthController extends GetxController {
               email: email.value, password: password.value)
           .then((value) {
         if (value.user != null) {
-          Get.to(AddBlogScreen());
+          Get.offAll(MainScreen());
           successToast('Successfully Login');
         }
       });
