@@ -61,7 +61,7 @@ class MainScreen extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [HomeScreen(), CategoryScreen(), SearchScreen()],
+          children: [HomeScreen(), CategoryScreen(), BlogSearchScreen()],
         ),
         drawer: AppDrawer(),
       ),

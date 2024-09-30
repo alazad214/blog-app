@@ -31,10 +31,7 @@ class BlogCard extends StatelessWidget {
               onTap: () => Get.to(() => BlogDetials(
                     blog: blogs[index],
                   )),
-              child: Container(
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(color: Colors.white),
+              child: Card(
                 child: Row(
                   children: [
                     Stack(
@@ -43,6 +40,7 @@ class BlogCard extends StatelessWidget {
                           height: 120,
                           width: size.width / 2.5,
                           clipBehavior: Clip.antiAlias,
+                          margin: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6)),
                           child: blog['image'] != null
@@ -51,8 +49,8 @@ class BlogCard extends StatelessWidget {
                                   fit: BoxFit.cover),
                         ),
                         Positioned(
-                          top: 5,
-                          left: 5,
+                          top: 10,
+                          left: 10,
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 7, vertical: 2),
